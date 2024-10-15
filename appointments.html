@@ -3,9 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Appointments Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    
+<body class="bg-gray-900 text-white font-sans">
+    <div class="container mx-auto p-6">
+        <!-- Summary Section -->
+        <div class="flex justify-between mb-6">
+            <div class="bg-gray-800 p-4 rounded-lg text-center w-1/5">
+                <h2 class="text-3xl text-green-400">14</h2>
+                <p class="text-gray-400">Total Appointments</p>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg text-center w-1/5">
+                <h2 class="text-3xl text-green-400">5</h2>
+                <p class="text-gray-400">Approved</p>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg text-center w-1/5">
+                <h2 class="text-3xl text-yellow-400">6</h2>
+                <p class="text-gray-400">Pending</p>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg text-center w-1/5">
+                <h2 class="text-3xl text-red-400">2</h2>
+                <p class="text-gray-400">Canceled</p>
+            </div>
+            <button class="bg-green-400 text-black px-4 py-2 rounded-lg hover:bg-green-300">Add New +</button>
+        </div>
+
+        <!-- Table Section -->
+        <table class="min-w-full bg-gray-800 text-left">
+            <thead>
+                <tr class="bg-gray-700">
+                    <th class="py-3 px-6">Appointment Date</th>
+                    <th class="py-3 px-6">Select Staff Members</th>
+                    <th class="py-3 px-6">Customer Name</th>
+                    <th class="py-3 px-6">Service</th>
+                    <th class="py-3 px-6">Status</th>
+                    <th class="py-3 px-6">Payment</th>
+                    <th class="py-3 px-6">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b border-gray-700">
+                    <td class="py-3 px-6">September 20, 2024 7:00 am</td>
+                    <td class="py-3 px-6">Liyan Sanchez</td>
+                    <td class="py-3 px-6">Said Bahena</td>
+                    <td class="py-3 px-6">Express</td>
+                    <td class="py-3 px-6"><span class="bg-yellow-500 text-black py-1 px-2 rounded-full">Pending</span></td>
+                    <td class="py-3 px-6"><span class="bg-red-500 py-1 px-2 rounded-full">No Paid</span></td>
+                    <td class="py-3 px-6">
+                        <button class="text-green-400 mr-2">✏️</button>
+                        <button class="text-red-400">🗑️</button>
+                    </td>
+                </tr>
+                <!-- Repeat rows as necessary -->
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
