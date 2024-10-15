@@ -118,6 +118,64 @@
                 <!-- Add more rows as necessary -->
             </tbody>
         </table>
+
+        <!-- Modal -->
+        <div id="modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+            <div class="bg-gray-800 p-6 rounded-lg w-11/12 md:w-1/2">
+                <h2 class="text-2xl text-white mb-4">Appointment Details</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                        <h3 class="text-gray-400">Details</h3>
+                        <p id="appointmentDetails" class="text-white"></p>
+                    </div>
+                </div>
+                <button id="closeModal" class="mt-4 bg-red-500 px-4 py-2 rounded-lg">Close</button>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Get modal and close button
+        const modal = document.getElementById('modal');
+        const closeModal = document.getElementById('closeModal');
+
+        // Add click event to table rows
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('click', () => {
+                // Get appointment details
+                const appointmentDate = row.children[0].innerText;
+                const staffMember = row.children[1].innerText;
+                const customerName = row.children[2].innerText;
+                const service = row.children[3].innerText;
+                const status = row.children[4].innerText;
+                const payment = row.children[5].innerText;
+
+                // Show details in the modal
+                document.getElementById('appointmentDetails').innerHTML = `
+                    <strong>Date:</strong> ${appointmentDate} <br>
+                    <strong>Staff:</strong> ${staffMember} <br>
+                    <strong>Customer:</strong> ${customerName} <br>
+                    <strong>Service:</strong> ${service} <br>
+                    <strong>Status:</strong> ${status} <br>
+                    <strong>Payment:</strong> ${payment}
+                `;
+                
+                // Show modal
+                modal.classList.remove('hidden');
+            });
+        });
+
+        // Close modal event
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.classList.add('hidden');
+            }
+        }
+    </script>
 </body>
 </html>
